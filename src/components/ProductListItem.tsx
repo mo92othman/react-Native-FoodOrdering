@@ -12,7 +12,7 @@ const defaultPizzaImage= 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/fo
 const ProductListItem = ({ product }:ProductListItemProps) => {
   return (
     <View style={styles.itemContainer}>
-      <Image style={styles.image} source={{ uri: product.image || defaultPizzaImage }} />
+      <Image style={styles.image} source={{ uri: product.image || defaultPizzaImage }} resizeMode='contain'/>
       <Text style={styles.productName}>{product.name}</Text>
       <Text style={styles.productPrice}>{product.price}</Text>
     </View>
@@ -25,18 +25,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20, 
+    flex: 1,
+    maxWidth: '50%',
   },
   image: {
-    width: '100%',
+    width: 150,
+    // height: 200,
     aspectRatio: 1,
     marginBottom: 10,
   },
   productName: {
     color: Colors.dark.tint,
-    fontSize: 40
+    fontSize: 18
   },
   productPrice: {
-    fontSize: 32,
+    fontSize: 24,
     color: Colors.light.tint,
     backgroundColor: 'yellow',
     marginTop: 20,
